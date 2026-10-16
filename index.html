@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barra Costera - Cevichería & Marisquería</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Poppins & Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lobster&family=Lilita+One&family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,800&family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              DEFAULT: '#598FAB',
+              dark: '#4c7f99',
+              darker: '#3f6b83',
+              light: '#c4dbe3',
+              soft: '#edf6f9',
+              accent: '#FFA6C2',
+              accentHover: '#f893b2'
+            }
+          },
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+            heading: ['Montserrat', 'sans-serif']
+          },
+          keyframes: {
+            floatSlow: {
+              '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+              '50%': { transform: 'translateY(-12px) rotate(4deg)' }
+            },
+            floatReverse: {
+              '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+              '50%': { transform: 'translateY(10px) rotate(-5deg)' }
+            },
+            pulseGlow: {
+              '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
+              '50%': { opacity: '0.7', transform: 'scale(1.05)' }
+            }
+          },
+          animation: {
+            'float': 'floatSlow 6s ease-in-out infinite',
+            'float-slow': 'floatSlow 8s ease-in-out infinite',
+            'float-rev': 'floatReverse 7s ease-in-out infinite',
+            'pulse-glow': 'pulseGlow 4s ease-in-out infinite'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Efecto de curvatura suave en la parte inferior como la referencia */
+    .hero-curve-mask {
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 font-sans antialiased overflow-x-hidden">
+
+  <!-- ========================================================
+       HERO SECTION CON IMAGEN DE FONDO DE LA BARRA
+       ======================================================== -->
+  <header id="inicio"
+    class="relative bg-cover bg-center bg-no-repeat text-white pt-5 pb-32 md:pb-48 overflow-hidden select-none"
+    style="background-image: url('ee6e7c31-cf54-4fc1-9a21-980269a35483.png');">
+
+    <!-- NAVBAR SUPERIOR -->
+    <nav class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between min-h-[5.5rem] md:min-h-[6.5rem] py-2 border-b border-white/15">
+        <!-- Logo -->
+        <a href="#" class="flex items-center group transition-transform duration-300 hover:scale-105">
+          <img src="logo.png" alt="Barra Costera" class="h-14 sm:h-16 md:h-20 lg:h-24 w-auto object-contain" />
+        </a>
+
+        <!-- Links Desktop -->
+        <div class="hidden md:flex items-center space-x-8 font-medium text-sm">
+          <a href="#inicio"
+            class="text-white font-semibold transition-colors hover:text-white/80 border-b-2 border-white pb-1">Inicio</a>
+          <a href="#carta" class="text-white/80 hover:text-white transition-colors">Nuestra Carta</a>
+          <a href="#especialidades" class="text-white/80 hover:text-white transition-colors">Especialidades</a>
+          <a href="#testimonios" class="text-white/80 hover:text-white transition-colors">Opiniones</a>
+          <a href="#contacto" class="text-white/80 hover:text-white transition-colors">Contacto</a>
+        </div>
+
+        <!-- Botón de Pedido / Reservas -->
+        <div class="flex items-center gap-4">
+          <a href="https://wa.me/34614322154?text=%C2%A1Hola%20Barra%20Costera!%20Deseo%20hacer%20un%20pedido" target="_blank" rel="noopener noreferrer"
+            class="hidden sm:inline-flex items-center gap-2 bg-[#FFA6C2] hover:bg-[#f893b2] text-white font-heading font-black text-xs uppercase tracking-wider px-6 py-2.5 rounded-full shadow-[0_4px_0_0_#d97896] hover:shadow-[0_4px_0_0_#c86583] active:translate-y-[2px] active:shadow-[0_1px_0_0_#d97896] transition-all duration-150 select-none cursor-pointer">
+            <span>HAZ TU PEDIDO</span>
+          </a>
+          <!-- Menu Toggle Mobile -->
+          <button class="md:hidden p-2 rounded-lg bg-white/15 text-white hover:bg-white/25 transition">
+            <i class="fa-solid fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- CONTENIDO CENTRAL DEL HERO -->
+    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center mt-10 md:mt-14">
+
+      <!-- 1. TÍTULO PRINCIPAL: ESTILO STICKER MARINO (AUTÉNTICO CEVICHE + BANDERA DE PERÚ) -->
+      <div class="relative w-full max-w-3xl md:max-w-4xl lg:max-w-5xl mx-auto py-1">
+        <h1 class="sr-only">Auténtico Ceviche del Perú</h1>
+
+        <svg viewBox="0 0 800 205" class="w-full h-auto select-none overflow-visible">
+          <defs>
+            <!-- Gradiente principal líquido azul marino -->
+            <linearGradient id="lecheMarineGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#c4dbe3" />
+              <stop offset="35%" stop-color="#598FAB" />
+              <stop offset="75%" stop-color="#426f87" />
+              <stop offset="100%" stop-color="#315568" />
+            </linearGradient>
+
+            <!-- Gradiente bloque para 'CEVICHE' -->
+            <linearGradient id="cevicheTextGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#598FAB" />
+              <stop offset="100%" stop-color="#345d73" />
+            </linearGradient>
+
+            <!-- Gradiente Rojo Bandera de Perú -->
+            <linearGradient id="peruRedGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#f0243d" />
+              <stop offset="100%" stop-color="#b50720" />
+            </linearGradient>
+          </defs>
+
+          <!-- ==========================================
+               CAPA 1: BORDE BLANCO GRUESO CONTINUO (STICKER DIE-CUT)
+               SIN INCLINACIÓN (0 GRADOS)
+               ========================================== -->
+          <g stroke="#ffffff" stroke-width="26" stroke-linejoin="round" stroke-linecap="round" fill="#ffffff">
+            <!-- Borde de 'Auténtico' centrado -->
+            <text x="400" y="96" text-anchor="middle" font-family="'Lobster', cursive" font-size="120">Auténtico</text>
+
+            <!-- Borde de 'CEVICHE' (Elevado) -->
+            <text x="196" y="156" font-family="'Lilita One', 'Montserrat', sans-serif" font-weight="900" font-size="72"
+              letter-spacing="4">CEVICHE</text>
+
+            <!-- Borde de Ondas marinas -->
+            <path d="M 200 176 Q 230 166 260 176 T 320 176 T 380 176 T 440 176 T 500 176 T 525 176" fill="none"
+              stroke-width="28" />
+            <path d="M 200 189 Q 230 179 260 189 T 320 189 T 380 189 T 440 189 T 500 189 T 525 189" fill="none"
+              stroke-width="28" />
+
+            <!-- Borde de Bandera de Perú (A la altura de CEVICHE, sin asta) -->
+            <path d="M 518 110 Q 538 104 554 110 Q 570 116 586 110 L 586 156 Q 570 162 554 156 Q 538 150 518 156 Z" />
+          </g>
+
+          <!-- ==========================================
+               CAPA 2: ELEMENTOS DE COLOR (RELLENOS)
+               SIN INCLINACIÓN (0 GRADOS)
+               ========================================== -->
+
+          <!-- Ondas Marinas bajo 'CEVICHE' -->
+          <path d="M 200 176 Q 230 166 260 176 T 320 176 T 380 176 T 440 176 T 500 176 T 525 176" fill="none"
+            stroke="#345d73" stroke-width="6.5" stroke-linecap="round" />
+          <path d="M 200 189 Q 230 179 260 189 T 320 189 T 380 189 T 440 189 T 500 189 T 525 189" fill="none"
+            stroke="#345d73" stroke-width="6.5" stroke-linecap="round" />
+
+          <!-- Texto 'CEVICHE' en bloque horizontal elevado -->
+          <text x="196" y="156" font-family="'Lilita One', 'Montserrat', sans-serif" font-weight="900" font-size="72"
+            letter-spacing="4" fill="url(#cevicheTextGrad)">CEVICHE</text>
+
+          <!-- Texto Principal 'Auténtico' más grande -->
+          <text x="400" y="96" text-anchor="middle" font-family="'Lobster', cursive" font-size="120"
+            fill="url(#lecheMarineGrad)">Auténtico</text>
+
+          <!-- BANDERA DE PERÚ (A la altura de CEVICHE, SIN ASTA) -->
+          <g id="peru-flag">
+            <!-- Franja Roja 1 (Izquierda) -->
+            <path d="M 518 110 Q 530 106 542 110 L 542 156 Q 530 152 518 156 Z" fill="url(#peruRedGrad)" />
+            <!-- Franja Blanca (Centro) -->
+            <path d="M 542 110 Q 554 114 564 110 L 564 156 Q 554 160 542 156 Z" fill="#ffffff" stroke="#f1f5f9"
+              stroke-width="0.5" />
+            <!-- Franja Roja 2 (Derecha) -->
+            <path d="M 564 110 Q 576 106 586 110 L 586 156 Q 576 152 564 156 Z" fill="url(#peruRedGrad)" />
+          </g>
+        </svg>
+      </div>
+
+      <!-- 2. IMAGEN DEL PLATO DE CEVICHE -->
+      <div class="relative -mt-4 sm:-mt-8 md:-mt-12 lg:-mt-14 z-20 flex justify-center">
+        <!-- PLATO DE CEVICHE PRINCIPAL -->
+        <div class="relative w-full max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-3xl group">
+          <!-- Imagen del plato provista por el usuario -->
+          <img src="ceviche.png" alt="Delicioso Plato de Ceviche Marino con Chicharrón, Canchita y Camote"
+            class="relative z-10 w-full h-auto object-contain transition-transform duration-500 ease-out hover:scale-[1.03] cursor-pointer" />
+        </div>
+      </div>
+
+      <!-- 3. BOTONES DE ACCIÓN (DEBAJO DE LA IMAGEN) -->
+      <div class="mt-6 md:mt-8 flex flex-wrap items-center justify-center gap-4 sm:gap-6 relative z-20">
+        <!-- Botón 1: HAZ TU PEDIDO (#FFA6C2 con efecto 3D idéntico a la referencia) -->
+        <a href="https://wa.me/34614322154?text=%C2%A1Hola%20Barra%20Costera!%20Deseo%20hacer%20un%20pedido"
+          target="_blank" rel="noopener noreferrer"
+          class="px-8 sm:px-10 py-3.5 sm:py-4 bg-[#FFA6C2] hover:bg-[#f893b2] text-white font-heading font-black text-sm sm:text-base uppercase tracking-wider rounded-full shadow-[0_6px_0_0_#d97896] hover:shadow-[0_6px_0_0_#c86583] active:translate-y-[4px] active:shadow-[0_2px_0_0_#d97896] transition-all duration-150 inline-flex items-center justify-center select-none cursor-pointer">
+          <span>HAZ TU PEDIDO</span>
+        </a>
+
+        <!-- Botón 2: HAZ TU RESERVA (#c4dbe3 con efecto 3D) -->
+        <a href="https://wa.me/34614322154?text=%C2%A1Hola%20Barra%20Costera!%20Deseo%20hacer%20una%20reserva%20de%20mesa"
+          target="_blank" rel="noopener noreferrer"
+          class="px-8 sm:px-10 py-3.5 sm:py-4 bg-[#c4dbe3] hover:bg-[#b3d1db] text-[#103a48] font-heading font-black text-sm sm:text-base uppercase tracking-wider rounded-full shadow-[0_6px_0_0_#8caeb9] hover:shadow-[0_6px_0_0_#7fa0ab] active:translate-y-[4px] active:shadow-[0_2px_0_0_#8caeb9] transition-all duration-150 inline-flex items-center justify-center select-none cursor-pointer">
+          <span>HAZ TU RESERVA</span>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- CURVA INFERIOR (Estilo idéntico a la transición del banner pizza) -->
+    <div class="hero-curve-mask pointer-events-none">
+      <svg viewBox="0 0 1440 180" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto block">
+        <!-- Arco sutil que cae en el centro y se eleva a los extremos -->
+        <path d="M0,0 C480,110 960,110 1440,0 L1440,180 L0,180 Z" fill="#f9fafb" />
+      </svg>
+    </div>
+
+  </header>
+
+  <!-- ========================================================
+       SECCIÓN: LO QUE NO PUEDE FALTAR (LO MÁS PEDIDO EN LA BARRA)
+       ======================================================== -->
+  <section id="especialidades" class="relative z-10 py-16 sm:py-20 lg:py-24 bg-white overflow-hidden">
+    
+    <!-- Patrón Marino sutil de fondo integrado -->
+    <div 
+      class="absolute inset-0 bg-repeat pointer-events-none opacity-[0.06] mix-blend-multiply"
+      style="background-image: url('patron-marino.png'); background-size: 340px;"
+    ></div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+      <!-- Encabezado de la Sección -->
+      <div class="text-center mb-12 sm:mb-16">
+        <!-- Subtítulo superior con líneas rosadas -->
+        <div class="inline-flex items-center justify-center gap-3 mb-2">
+          <span class="w-6 sm:w-8 h-[2px] bg-[#FFA6C2]"></span>
+          <span class="font-heading font-black text-[#598FAB] text-xs sm:text-sm tracking-widest uppercase">
+            LO MÁS PEDIDO EN LA BARRA
+          </span>
+          <span class="w-6 sm:w-8 h-[2px] bg-[#FFA6C2]"></span>
+        </div>
+
+        <!-- Título Grande Bicolor -->
+        <h2 class="font-heading font-black text-3xl sm:text-5xl md:text-6xl uppercase tracking-tight leading-tight">
+          <span class="text-[#598FAB]">LO QUE NO </span>
+          <span class="text-[#FFA6C2]">PUEDE FALTAR</span>
+        </h2>
+      </div>
+
+      <!-- Grid de las 3 Tarjetas -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-8 lg:gap-10 max-w-5xl mx-auto pt-3 pb-2">
+
+        <!-- Tarjeta 1: Leche de Tigre (Inclinación -3°) -->
+        <div class="group flex flex-col items-center">
+          <div class="relative w-full max-w-[310px] aspect-square rounded-[2rem] overflow-hidden shadow-xl group-hover:shadow-2xl transition-all duration-300 transform -rotate-[3deg] group-hover:-rotate-[1deg] group-hover:scale-[1.03] group-hover:-translate-y-2 border-4 border-white bg-slate-50">
+            <img src="card-leche-tigre.jpg" alt="Leche de Tigre" class="w-full h-full object-cover" />
+          </div>
+          <!-- Pie de tarjeta: Nombre y Precio -->
+          <div class="w-full max-w-[310px] flex items-center justify-between mt-4 px-2">
+            <span class="font-heading font-black text-slate-800 text-sm sm:text-base uppercase tracking-tight">
+              LECHE DE TIGRE
+            </span>
+            <span class="px-3.5 py-1 bg-[#598FAB] text-white font-heading font-black text-xs sm:text-sm rounded-full shadow-sm">
+              8 €
+            </span>
+          </div>
+        </div>
+
+        <!-- Tarjeta 2: Causa de Tigre (Inclinación -1°) -->
+        <div class="group flex flex-col items-center">
+          <div class="relative w-full max-w-[310px] aspect-square rounded-[2rem] overflow-hidden shadow-xl group-hover:shadow-2xl transition-all duration-300 transform -rotate-[1deg] group-hover:rotate-0 group-hover:scale-[1.03] group-hover:-translate-y-2 border-4 border-white bg-slate-50">
+            <img src="card-causa-tigre.jpg" alt="Causa de Tigre" class="w-full h-full object-cover" />
+          </div>
+          <!-- Pie de tarjeta: Nombre y Precio -->
+          <div class="w-full max-w-[310px] flex items-center justify-between mt-4 px-2">
+            <span class="font-heading font-black text-slate-800 text-sm sm:text-base uppercase tracking-tight">
+              CAUSA DE TIGRE
+            </span>
+            <span class="px-3.5 py-1 bg-[#598FAB] text-white font-heading font-black text-xs sm:text-sm rounded-full shadow-sm">
+              10 €
+            </span>
+          </div>
+        </div>
+
+        <!-- Tarjeta 3: Ceviche Carretillero (Inclinación +2.5°) -->
+        <div class="group flex flex-col items-center">
+          <div class="relative w-full max-w-[310px] aspect-square rounded-[2rem] overflow-hidden shadow-xl group-hover:shadow-2xl transition-all duration-300 transform rotate-[2.5deg] group-hover:rotate-[0.5deg] group-hover:scale-[1.03] group-hover:-translate-y-2 border-4 border-white bg-slate-50">
+            <img src="card-ceviche-carretillero.jpg" alt="Ceviche Carretillero de Pota" class="w-full h-full object-cover" />
+          </div>
+          <!-- Pie de tarjeta: Nombre y Precio -->
+          <div class="w-full max-w-[310px] flex items-center justify-between mt-4 px-2">
+            <span class="font-heading font-black text-slate-800 text-sm sm:text-base uppercase tracking-tight">
+              CEVICHE CARRETILLERO
+            </span>
+            <span class="px-3.5 py-1 bg-[#598FAB] text-white font-heading font-black text-xs sm:text-sm rounded-full shadow-sm">
+              15 €
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bloque inferior: Mensaje destacado + Botón a la Carta -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mt-12 sm:mt-16">
+        
+        <!-- Bocadillo de diálogo rosado -->
+        <div class="relative bg-[#FFA6C2] text-white font-heading font-black text-xs sm:text-sm uppercase tracking-wide px-7 py-3.5 rounded-2xl shadow-md text-center max-w-sm">
+          <span>NO SOLO ENCONTRARÁS ESTOS PLATOS, ¡SINO MUCHOS MÁS!</span>
+          <!-- Triángulo indicador a la derecha (en pantallas sm+) -->
+          <div class="hidden sm:block absolute -right-2 top-1/2 -translate-y-1/2 w-0 h-0 border-t-[8px] border-t-transparent border-b-[8px] border-b-transparent border-l-[8px] border-l-[#FFA6C2]"></div>
+        </div>
+
+        <!-- Botón 3D con estilo píldora de la web -->
+        <a href="#carta"
+          class="inline-flex items-center justify-center px-8 py-3.5 sm:px-10 sm:py-4 bg-[#598FAB] hover:bg-[#4c7f99] text-white font-heading font-black text-xs sm:text-sm uppercase tracking-wider rounded-full shadow-[0_6px_0_0_#3f6b83] hover:shadow-[0_6px_0_0_#345d73] active:translate-y-[4px] active:shadow-[0_2px_0_0_#3f6b83] transition-all duration-150 select-none cursor-pointer">
+          <span>PIDE LA CARTA COMPLETA</span>
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ========================================================
+       BLOQUE DE LA CARTA / MENÚ (RÉPLICA EXACTA DEL DISEÑO)
+       ======================================================== -->
+  <section id="carta"
+    class="relative w-full bg-white pt-16 sm:pt-24 pb-24 sm:pb-32 lg:pb-40 border-t border-slate-100 overflow-hidden">
+    
+    <!-- Patrón Marino sutil de fondo integrado (igual a LO MÁS PEDIDO EN LA BARRA) -->
+    <div 
+      class="absolute inset-0 bg-repeat pointer-events-none opacity-[0.06] mix-blend-multiply"
+      style="background-image: url('patron-marino.png'); background-size: 340px;"
+    ></div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+      <!-- Encabezado de la Carta de Platos -->
+      <div class="text-center mb-12 sm:mb-16">
+        <!-- Subtítulo superior con líneas rosadas -->
+        <div class="inline-flex items-center justify-center gap-3 mb-2">
+          <span class="w-6 sm:w-8 h-[2px] bg-[#FFA6C2]"></span>
+          <span class="font-heading font-black text-[#598FAB] text-xs sm:text-sm tracking-widest uppercase">
+            DEL MAR A TU MESA
+          </span>
+          <span class="w-6 sm:w-8 h-[2px] bg-[#FFA6C2]"></span>
+        </div>
+
+        <!-- Título Grande Bicolor -->
+        <h2 class="font-heading font-black text-3xl sm:text-5xl md:text-6xl uppercase tracking-tight leading-tight">
+          <span class="text-[#598FAB]">CARTA DE </span>
+          <span class="text-[#FFA6C2]">PLATOS</span>
+        </h2>
+      </div>
+
+      <!-- Contenedor Principal de la Carta: Selección Destacada -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14">
+
+        <!-- ================= COLUMNA IZQUIERDA: ENTRADAS & CEVICHES ================= -->
+        <div>
+          <!-- Título de sección -->
+          <h3
+            class="font-heading font-black text-2xl sm:text-3xl text-[#598FAB] flex items-center gap-2 mb-6 tracking-tight">
+            <span>Entradas & Ceviches</span>
+            <span class="w-2.5 h-2.5 rounded-full bg-[#FFA6C2] inline-block"></span>
+          </h3>
+
+          <div class="space-y-5">
+            <!-- Item 1: Causa Limeña de Pulpo al Olivo -->
+            <div
+              class="rounded-2xl border border-rose-100 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+              <div
+                class="bg-[#FFA6C2] text-white font-heading font-black text-[11px] sm:text-xs uppercase tracking-wider px-4 py-1.5">
+                NUEVO
+              </div>
+              <div class="p-4 bg-white">
+                <div class="flex items-baseline justify-between gap-2">
+                  <h4 class="font-heading font-black text-slate-800 text-base sm:text-lg">
+                    Causa Limeña de Pulpo al Olivo
+                  </h4>
+                  <span class="flex-grow border-b-2 border-dotted border-slate-300 mx-2 mb-1"></span>
+                  <span class="font-heading font-black text-[#598FAB] text-base sm:text-lg whitespace-nowrap">
+                    28,00 €
+                  </span>
+                </div>
+                <p class="text-slate-500 text-xs sm:text-[13px] font-medium leading-relaxed mt-1">
+                  Papa amarilla / Palta / Pulpo macerado / Crema botija
+                </p>
+              </div>
+            </div>
+
+            <!-- Item 2: Ceviche Mixto Barra Costera -->
+            <div
+              class="rounded-2xl border border-teal-100 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+              <div
+                class="bg-[#598FAB] text-white font-heading font-black text-[11px] sm:text-xs uppercase tracking-wider px-4 py-1.5">
+                RECOMENDADO
+              </div>
+              <div class="p-4 bg-white">
+                <div class="flex items-baseline justify-between gap-2">
+                  <h4 class="font-heading font-black text-slate-800 text-base sm:text-lg">
+                    Ceviche Mixto Barra Costera
+                  </h4>
+                  <span class="flex-grow border-b-2 border-dotted border-slate-300 mx-2 mb-1"></span>
+                  <span class="font-heading font-black text-[#598FAB] text-base sm:text-lg whitespace-nowrap">
+                    42,00 €
+                  </span>
+                </div>
+                <p class="text-slate-500 text-xs sm:text-[13px] font-medium leading-relaxed mt-1">
+                  Pesca del día / Calamar / Langostinos / Leche de tigre artesanal
+                </p>
+              </div>
+            </div>
+
+            <!-- Item 3: Chicharrón Mixto Crocante -->
+            <div class="py-2.5 px-1">
+              <div class="flex items-baseline justify-between gap-2">
+                <h4 class="font-heading font-black text-slate-800 text-base sm:text-lg">
+                  Chicharrón Mixto Crocante
+                </h4>
+                <span class="flex-grow border-b-2 border-dotted border-slate-300 mx-2 mb-1"></span>
+                <span class="font-heading font-black text-[#598FAB] text-base sm:text-lg whitespace-nowrap">
+                  39,50 €
+                </span>
+              </div>
+              <p class="text-slate-500 text-xs sm:text-[13px] font-medium leading-relaxed mt-1">
+                Trozos de pescado y calamar / Yuca frita / Salsa criolla / Tártara
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= COLUMNA DERECHA: FONDOS & ESPECIALIDADES ================= -->
+        <div>
+          <!-- Título de sección -->
+          <h3
+            class="font-heading font-black text-2xl sm:text-3xl text-[#598FAB] flex items-center gap-2 mb-6 tracking-tight">
+            <span>Fondos & Especialidades</span>
+            <span class="w-2.5 h-2.5 rounded-full bg-[#FFA6C2] inline-block"></span>
+          </h3>
+
+          <div class="space-y-5">
+            <!-- Item 4: Arroz con Mariscos al Fuego Vivo -->
+            <div
+              class="rounded-2xl border border-rose-100 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+              <div
+                class="bg-[#FFA6C2] text-white font-heading font-black text-[11px] sm:text-xs uppercase tracking-wider px-4 py-1.5">
+                MÁS PEDIDO
+              </div>
+              <div class="p-4 bg-white">
+                <div class="flex items-baseline justify-between gap-2">
+                  <h4 class="font-heading font-black text-slate-800 text-base sm:text-lg">
+                    Arroz con Mariscos al Fuego Vivo
+                  </h4>
+                  <span class="flex-grow border-b-2 border-dotted border-slate-300 mx-2 mb-1"></span>
+                  <span class="font-heading font-black text-[#598FAB] text-base sm:text-lg whitespace-nowrap">
+                    44,00 €
+                  </span>
+                </div>
+                <p class="text-slate-500 text-xs sm:text-[13px] font-medium leading-relaxed mt-1">
+                  Mariscos selectos / Ají amarillo / Cerveza negra / Parmesano
+                </p>
+              </div>
+            </div>
+
+            <!-- Item 5: Pulpo a la Parrilla con Chimichurri -->
+            <div
+              class="rounded-2xl border border-teal-100 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+              <div
+                class="bg-[#598FAB] text-white font-heading font-black text-[11px] sm:text-xs uppercase tracking-wider px-4 py-1.5">
+                ESPECIALIDAD
+              </div>
+              <div class="p-4 bg-white">
+                <div class="flex items-baseline justify-between gap-2">
+                  <h4 class="font-heading font-black text-slate-800 text-base sm:text-lg">
+                    Pulpo a la Parrilla con Chimichurri
+                  </h4>
+                  <span class="flex-grow border-b-2 border-dotted border-slate-300 mx-2 mb-1"></span>
+                  <span class="font-heading font-black text-[#598FAB] text-base sm:text-lg whitespace-nowrap">
+                    48,00 €
+                  </span>
+                </div>
+                <p class="text-slate-500 text-xs sm:text-[13px] font-medium leading-relaxed mt-1">
+                  Tentáculo macerado al carbón / Papas nativas doradas / Salsa anticuchera
+                </p>
+              </div>
+            </div>
+
+            <!-- Item 6: Chaufa Marino Especial al Wok -->
+            <div class="py-2.5 px-1">
+              <div class="flex items-baseline justify-between gap-2">
+                <h4 class="font-heading font-black text-slate-800 text-base sm:text-lg">
+                  Chaufa Marino Especial al Wok
+                </h4>
+                <span class="flex-grow border-b-2 border-dotted border-slate-300 mx-2 mb-1"></span>
+                <span class="font-heading font-black text-[#598FAB] text-base sm:text-lg whitespace-nowrap">
+                  38,00 €
+                </span>
+              </div>
+              <p class="text-slate-500 text-xs sm:text-[13px] font-medium leading-relaxed mt-1">
+                Arroz al wok con mariscos / Cecina marina / Tortilla crocante
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ================= CONTENEDOR DESPLEGABLE CON PLATOS ADICIONALES ================= -->
+      <div id="carta-completa-extra" class="hidden mt-8 pt-8 border-t border-dashed border-slate-200">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14">
+
+          <!-- Extras Izquierda -->
+          <div class="space-y-4">
+            <!-- Item 7: Tequeños Costeros con Cangrejo -->
+            <div class="py-2 px-1">
+              <div class="flex items-baseline justify-between gap-2">
+                <h4 class="font-heading font-black text-slate-800 text-base sm:text-lg">
+                  Tequeños Costeros con Cangrejo
+                </h4>
+                <span class="flex-grow border-b-2 border-dotted border-slate-300 mx-2 mb-1"></span>
+                <span class="font-heading font-black text-[#598FAB] text-base sm:text-lg whitespace-nowrap">
+                  24,50 €
+                </span>
+              </div>
+              <p class="text-slate-500 text-xs sm:text-[13px] font-medium leading-relaxed mt-1">
+                Pulpa de cangrejo / Queso andino / Guacamole casero
+              </p>
+            </div>
+
+            <!-- Item 8: Tiradito Clásico en Tres Ajíes -->
+            <div class="py-2 px-1">
+              <div class="flex items-baseline justify-between gap-2">
+                <h4 class="font-heading font-black text-slate-800 text-base sm:text-lg">
+                  Tiradito Clásico en Tres Ajíes
+                </h4>
+                <span class="flex-grow border-b-2 border-dotted border-slate-300 mx-2 mb-1"></span>
+                <span class="font-heading font-black text-[#598FAB] text-base sm:text-lg whitespace-nowrap">
+                  36,00 €
+                </span>
+              </div>
+              <p class="text-slate-500 text-xs sm:text-[13px] font-medium leading-relaxed mt-1">
+                Láminas de corvina / Cremas de ají amarillo, rocoto y olivo
+              </p>
+            </div>
+
+            <!-- Item 9: Conchas Negras a la Chalaca -->
+            <div class="py-2 px-1">
+              <div class="flex items-baseline justify-between gap-2">
+                <h4 class="font-heading font-black text-slate-800 text-base sm:text-lg">
+                  Conchas Negras a la Chalaca
+                </h4>
+                <span class="flex-grow border-b-2 border-dotted border-slate-300 mx-2 mb-1"></span>
+                <span class="font-heading font-black text-[#598FAB] text-base sm:text-lg whitespace-nowrap">
+                  38,00 €
+                </span>
+              </div>
+              <p class="text-slate-500 text-xs sm:text-[13px] font-medium leading-relaxed mt-1">
+                Conchas frescas de Tumbes / Cebolla / Ají limo / Choclo
+              </p>
+            </div>
+          </div>
+
+          <!-- Extras Derecha -->
+          <div class="space-y-4">
+            <!-- Item 10: Tacu Tacu en Salsa de Mariscos -->
+            <div class="py-2 px-1">
+              <div class="flex items-baseline justify-between gap-2">
+                <h4 class="font-heading font-black text-slate-800 text-base sm:text-lg">
+                  Tacu Tacu en Salsa de Mariscos
+                </h4>
+                <span class="flex-grow border-b-2 border-dotted border-slate-300 mx-2 mb-1"></span>
+                <span class="font-heading font-black text-[#598FAB] text-base sm:text-lg whitespace-nowrap">
+                  46,50 €
+                </span>
+              </div>
+              <p class="text-slate-500 text-xs sm:text-[13px] font-medium leading-relaxed mt-1">
+                Sábana de tacu tacu / Mariscos flameados al pisco / Ají panca
+              </p>
+            </div>
+
+            <!-- Item 11: Pescado a la Chorrillana Tradicional -->
+            <div class="py-2 px-1">
+              <div class="flex items-baseline justify-between gap-2">
+                <h4 class="font-heading font-black text-slate-800 text-base sm:text-lg">
+                  Pescado a la Chorrillana Tradicional
+                </h4>
+                <span class="flex-grow border-b-2 border-dotted border-slate-300 mx-2 mb-1"></span>
+                <span class="font-heading font-black text-[#598FAB] text-base sm:text-lg whitespace-nowrap">
+                  39,00 €
+                </span>
+              </div>
+              <p class="text-slate-500 text-xs sm:text-[13px] font-medium leading-relaxed mt-1">
+                Filete fresco a la plancha / Sofrito de cebollas y tomates / Yuca dorada
+              </p>
+            </div>
+
+            <!-- Item 12: Langostinos al Ajillo Costero -->
+            <div class="py-2 px-1">
+              <div class="flex items-baseline justify-between gap-2">
+                <h4 class="font-heading font-black text-slate-800 text-base sm:text-lg">
+                  Langostinos al Ajillo Costero
+                </h4>
+                <span class="flex-grow border-b-2 border-dotted border-slate-300 mx-2 mb-1"></span>
+                <span class="font-heading font-black text-[#598FAB] text-base sm:text-lg whitespace-nowrap">
+                  41,50 €
+                </span>
+              </div>
+              <p class="text-slate-500 text-xs sm:text-[13px] font-medium leading-relaxed mt-1">
+                Colas de langostinos / Mantequilla de ajo confitado / Tostones
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ================= BOTÓN DE ACCIÓN: VER CARTA COMPLETA ================= -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10 sm:mt-12 relative z-20">
+        <!-- Botón 1: VER CARTA COMPLETA (Despliega platos adicionales) -->
+        <button id="toggle-carta-btn" onclick="toggleCartaCompleta()"
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 sm:px-10 py-3.5 sm:py-4 bg-[#FFA6C2] hover:bg-[#f893b2] text-white font-heading font-black text-xs sm:text-sm uppercase tracking-wider rounded-full shadow-[0_6px_0_0_#d97896] hover:shadow-[0_6px_0_0_#c86583] active:translate-y-[4px] active:shadow-[0_2px_0_0_#d97896] transition-all duration-150 select-none cursor-pointer">
+          <i class="fa-solid fa-utensils text-sm"></i>
+          <span id="toggle-carta-text">VER CARTA COMPLETA</span>
+          <i id="toggle-carta-icon" class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
+        </button>
+
+        <!-- Botón 2: PEDIR CARTA EN PDF POR WHATSAPP -->
+        <a href="https://wa.me/34614322154?text=%C2%A1Hola%20Barra%20Costera!%20Deseo%20ver%20la%20carta%20completa%20en%20PDF"
+          target="_blank" rel="noopener noreferrer"
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 sm:py-4 bg-[#c4dbe3] hover:bg-[#b3d1db] text-[#103a48] font-heading font-black text-xs sm:text-sm uppercase tracking-wider rounded-full shadow-[0_6px_0_0_#8caeb9] hover:shadow-[0_6px_0_0_#7fa0ab] active:translate-y-[4px] active:shadow-[0_2px_0_0_#8caeb9] transition-all duration-150 select-none cursor-pointer">
+          <i class="fa-brands fa-whatsapp text-base text-[#25D366]"></i>
+          <span>PEDIR CARTA EN PDF</span>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Imagen del Bowl de Ceviche con absolute a la derecha sobresaliendo del borde -->
+    <div
+      class="absolute -right-10 sm:-right-16 md:-right-24 lg:-right-32 -bottom-8 sm:-bottom-12 lg:-bottom-16 z-20 pointer-events-none select-none">
+      <img src="ceviche-bowl.png" alt="Ceviche Clásico Peruano en Bowl Marino"
+        class="w-60 sm:w-80 md:w-96 lg:w-[480px] h-auto object-contain drop-shadow-2xl transition-transform duration-700 ease-out hover:scale-105" />
+    </div>
+
+  </section>
+
+  <!-- ========================================================
+       SECCIÓN: INSTAGRAM FEED (@BARRACOSTERABYCAMILA)
+       ======================================================== -->
+  <section id="instagram" class="relative w-full py-20 sm:py-24 lg:py-28 bg-[#c4dbe3]/60 overflow-hidden">
+
+    <!-- Curva superior blanca que transiciona suavemente desde la carta -->
+    <div class="absolute top-0 inset-x-0 z-20 pointer-events-none">
+      <svg viewBox="0 0 1440 60" fill="none" class="w-full h-auto block" preserveAspectRatio="none">
+        <path d="M0,0 L1440,0 L1440,15 Q720,55 0,15 Z" fill="#ffffff" />
+      </svg>
+    </div>
+
+    <!-- Patrón Marino sobre fondo celeste suave -->
+    <div 
+      class="absolute inset-0 bg-repeat pointer-events-none opacity-20 mix-blend-multiply z-0"
+      style="background-image: url('patron-marino.png'); background-size: 320px;"
+    ></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+
+      <!-- Encabezado de la Sección -->
+      <div class="text-center mb-12 sm:mb-16">
+        <!-- Subtítulo superior con líneas rosadas -->
+        <div class="inline-flex items-center justify-center gap-3 mb-2">
+          <span class="w-6 sm:w-8 h-[2px] bg-[#FFA6C2]"></span>
+          <span class="font-heading font-black text-[#598FAB] text-xs sm:text-sm tracking-widest uppercase">
+            SÍGUENOS
+          </span>
+          <span class="w-6 sm:w-8 h-[2px] bg-[#FFA6C2]"></span>
+        </div>
+
+        <!-- Título Grande Bicolor con Enlace a Instagram -->
+        <h2 class="font-heading font-black text-2xl sm:text-4xl md:text-5xl lg:text-6xl uppercase tracking-tight leading-tight">
+          <a href="https://www.instagram.com/barracosterabycamila/" target="_blank" rel="noopener noreferrer"
+            class="hover:opacity-95 transition-opacity inline-block">
+            <span class="text-[#598FAB]">@BARRACOSTERA</span><span class="text-[#FFA6C2]">BYCAMILA</span>
+          </a>
+        </h2>
+      </div>
+
+      <!-- Grid de las 4 Fotos Originales de Instagram -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-5xl mx-auto">
+
+        <!-- Foto 1: Camila en la Barra -->
+        <a href="https://www.instagram.com/barracosterabycamila/" target="_blank" rel="noopener noreferrer"
+          class="group relative aspect-[4/5] rounded-2xl sm:rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-4 border-white bg-white block">
+          <img src="feed-camila-bar.jpg" alt="Camila en Barra Costera"
+            class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110" />
+          <div class="absolute inset-0 bg-[#598FAB]/75 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-1.5 text-white p-2 text-center">
+            <i class="fa-brands fa-instagram text-2xl sm:text-3xl"></i>
+            <span class="font-heading font-black text-xs uppercase tracking-wider">Ver Post</span>
+          </div>
+        </a>
+
+        <!-- Foto 2: Camila en la Fachada -->
+        <a href="https://www.instagram.com/barracosterabycamila/" target="_blank" rel="noopener noreferrer"
+          class="group relative aspect-[4/5] rounded-2xl sm:rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-4 border-white bg-white block">
+          <img src="feed-camila-fachada.jpg" alt="Bienvenidos a Barra Costera by Camila"
+            class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110" />
+          <div class="absolute inset-0 bg-[#598FAB]/75 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-1.5 text-white p-2 text-center">
+            <i class="fa-brands fa-instagram text-2xl sm:text-3xl"></i>
+            <span class="font-heading font-black text-xs uppercase tracking-wider">Ver Post</span>
+          </div>
+        </a>
+
+        <!-- Foto 3: Arroz Marino al Wok -->
+        <a href="https://www.instagram.com/barracosterabycamila/" target="_blank" rel="noopener noreferrer"
+          class="group relative aspect-[4/5] rounded-2xl sm:rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-4 border-white bg-white block">
+          <img src="feed-arroz-mariscos.jpg" alt="Arroz con Mariscos Especial"
+            class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110" />
+          <div class="absolute inset-0 bg-[#598FAB]/75 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-1.5 text-white p-2 text-center">
+            <i class="fa-brands fa-instagram text-2xl sm:text-3xl"></i>
+            <span class="font-heading font-black text-xs uppercase tracking-wider">Ver Post</span>
+          </div>
+        </a>
+
+        <!-- Foto 4: Camila Presentando Platos -->
+        <a href="https://www.instagram.com/barracosterabycamila/" target="_blank" rel="noopener noreferrer"
+          class="group relative aspect-[4/5] rounded-2xl sm:rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-4 border-white bg-white block">
+          <img src="feed-camila-plato.jpg" alt="Sabor Marino Peruano"
+            class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110" />
+          <div class="absolute inset-0 bg-[#598FAB]/75 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-1.5 text-white p-2 text-center">
+            <i class="fa-brands fa-instagram text-2xl sm:text-3xl"></i>
+            <span class="font-heading font-black text-xs uppercase tracking-wider">Ver Post</span>
+          </div>
+        </a>
+
+      </div>
+
+      <!-- Botón Inferior: VER INSTAGRAM -->
+      <div class="text-center mt-10 sm:mt-12 md:mt-14">
+        <a href="https://www.instagram.com/barracosterabycamila/" target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center justify-center gap-2.5 px-8 sm:px-10 py-3.5 sm:py-4 bg-[#FFA6C2] hover:bg-[#f893b2] text-white font-heading font-black text-xs sm:text-sm uppercase tracking-wider rounded-full shadow-[0_6px_0_0_#d97896] hover:shadow-[0_6px_0_0_#c86583] active:translate-y-[4px] active:shadow-[0_2px_0_0_#d97896] transition-all duration-150 select-none cursor-pointer">
+          <i class="fa-brands fa-instagram text-base"></i>
+          <span>VER INSTAGRAM</span>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Curva inferior blanca hacia la sección de testimonios -->
+    <div class="absolute bottom-0 inset-x-0 z-20 pointer-events-none">
+      <svg viewBox="0 0 1440 60" fill="none" class="w-full h-auto block" preserveAspectRatio="none">
+        <path d="M0,45 Q720,5 1440,45 L1440,60 L0,60 Z" fill="#ffffff" />
+      </svg>
+    </div>
+
+  </section>
+
+
+  <!-- ========================================================
+       BLOQUE DE TESTIMONIOS CON SLIDER (INSPIRADO EN LA REFERENCIA)
+       ======================================================== -->
+  <section id="testimonios" class="relative w-full bg-white py-16 sm:py-24 overflow-hidden border-t border-slate-100">
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+
+      <!-- Encabezado de la sección -->
+      <div class="text-center mb-10 sm:mb-14">
+        <!-- Subtítulo superior con líneas rosadas -->
+        <div class="inline-flex items-center justify-center gap-3 mb-2">
+          <span class="w-6 sm:w-8 h-[2px] bg-[#FFA6C2]"></span>
+          <span class="font-heading font-black text-[#598FAB] text-xs sm:text-sm tracking-widest uppercase">
+            OPINIONES DE NUESTROS CLIENTES
+          </span>
+          <span class="w-6 sm:w-8 h-[2px] bg-[#FFA6C2]"></span>
+        </div>
+
+        <!-- Título Grande Bicolor -->
+        <h2 class="font-heading font-black text-3xl sm:text-5xl md:text-6xl uppercase tracking-tight leading-tight">
+          <span class="text-[#598FAB]">LO QUE DICEN </span>
+          <span class="text-[#FFA6C2]">DE NOSOTROS</span>
+        </h2>
+      </div>
+
+      <!-- Contenedor del Testimonio con círculos flotantes -->
+      <div class="relative max-w-4xl mx-auto min-h-[300px] sm:min-h-[320px] flex items-center justify-center">
+
+        <!-- 1. CLÚSTER DE AVATARES FLOTANTES IZQUIERDA -->
+        <div
+          class="absolute -left-2 sm:left-0 md:-left-8 lg:-left-16 top-1/2 -translate-y-1/2 hidden sm:block pointer-events-none z-10">
+          <div class="relative w-36 sm:w-44 h-48 sm:h-56">
+            <!-- Avatar pequeño arriba -->
+            <div
+              class="testimonial-avatar absolute top-2 right-4 w-12 h-12 rounded-full overflow-hidden ring-4 ring-white shadow-md transition-all duration-500 hover:scale-110 pointer-events-auto cursor-pointer"
+              onclick="goToSlide(0)">
+              <img src="cliente-1.jpg" alt="Cliente Barra Costera" class="w-full h-full object-cover">
+            </div>
+            <!-- Avatar grande centro-izquierda -->
+            <div
+              class="testimonial-avatar absolute top-14 left-0 w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden ring-4 ring-white shadow-lg transition-all duration-500 hover:scale-110 pointer-events-auto cursor-pointer"
+              onclick="goToSlide(1)">
+              <img src="cliente-2.jpg" alt="Cliente Barra Costera" class="w-full h-full object-cover">
+            </div>
+            <!-- Avatar mediano abajo -->
+            <div
+              class="testimonial-avatar absolute bottom-2 right-6 w-14 h-14 rounded-full overflow-hidden ring-4 ring-white shadow-md transition-all duration-500 hover:scale-110 pointer-events-auto cursor-pointer"
+              onclick="goToSlide(2)">
+              <img src="cliente-3.jpg" alt="Cliente Barra Costera" class="w-full h-full object-cover">
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. CLÚSTER DE AVATARES FLOTANTES DERECHA -->
+        <div
+          class="absolute -right-2 sm:right-0 md:-right-8 lg:-right-16 top-1/2 -translate-y-1/2 hidden sm:block pointer-events-none z-10">
+          <div class="relative w-36 sm:w-44 h-48 sm:h-56">
+            <!-- Avatar grande arriba-derecha -->
+            <div
+              class="testimonial-avatar absolute top-4 right-2 w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden ring-4 ring-white shadow-lg transition-all duration-500 hover:scale-110 pointer-events-auto cursor-pointer"
+              onclick="goToSlide(2)">
+              <img src="cliente-3.jpg" alt="Cliente Barra Costera" class="w-full h-full object-cover">
+            </div>
+            <!-- Avatar mediano centro-izquierda -->
+            <div
+              class="testimonial-avatar absolute top-20 left-2 w-14 h-14 rounded-full overflow-hidden ring-4 ring-white shadow-md transition-all duration-500 hover:scale-110 pointer-events-auto cursor-pointer"
+              onclick="goToSlide(0)">
+              <img src="cliente-1.jpg" alt="Cliente Barra Costera" class="w-full h-full object-cover">
+            </div>
+            <!-- Avatar pequeño abajo -->
+            <div
+              class="testimonial-avatar absolute bottom-2 right-8 w-11 h-11 rounded-full overflow-hidden ring-4 ring-white shadow-md transition-all duration-500 hover:scale-110 pointer-events-auto cursor-pointer"
+              onclick="goToSlide(1)">
+              <img src="cliente-2.jpg" alt="Cliente Barra Costera" class="w-full h-full object-cover">
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. SLIDER DE TESTIMONIOS CENTRAL -->
+        <div class="relative w-full max-w-xl mx-auto px-4 sm:px-6 text-center z-20">
+
+          <!-- Contenedor de slides con transición suave -->
+          <div id="testimonial-slider-container" class="relative overflow-hidden min-h-[170px] sm:min-h-[150px]">
+
+            <!-- Slide 1 -->
+            <div class="testimonial-slide transition-all duration-700 opacity-100 transform translate-x-0 relative">
+              <p class="text-slate-600 italic text-sm sm:text-base md:text-lg leading-relaxed font-body">
+                “El ceviche mixto y la causa acevichada son insuperables. El pescado se siente del día, súper fresco y
+                con ese toque justo de limón recién exprimido. ¡Nuestra parada fija obligatoria!”
+              </p>
+              <p class="font-['Lobster'] text-[#598FAB] text-2xl sm:text-3xl mt-4">
+                Valeria Ramos
+              </p>
+            </div>
+
+            <!-- Slide 2 -->
+            <div
+              class="testimonial-slide transition-all duration-700 opacity-0 transform translate-x-8 absolute inset-0 pointer-events-none">
+              <p class="text-slate-600 italic text-sm sm:text-base md:text-lg leading-relaxed font-body">
+                “La Leche de Tigre carretillera en vaso es espectacular: el chicharrón crocante y los chifles combinan a
+                la perfección con la acidez justa. ¡La mejor cevichería de la ciudad!”
+              </p>
+              <p class="font-['Lobster'] text-[#598FAB] text-2xl sm:text-3xl mt-4">
+                Andrea Castro
+              </p>
+            </div>
+
+            <!-- Slide 3 -->
+            <div
+              class="testimonial-slide transition-all duration-700 opacity-0 transform translate-x-8 absolute inset-0 pointer-events-none">
+              <p class="text-slate-600 italic text-sm sm:text-base md:text-lg leading-relaxed font-body">
+                “Atención impecable y una calidad en mariscos que impresiona. El delivery llegó súper rápido y bien
+                servido. La chicha morada casera helada es el acompañamiento ideal.”
+              </p>
+              <p class="font-['Lobster'] text-[#598FAB] text-2xl sm:text-3xl mt-4">
+                Carlos Mendoza
+              </p>
+            </div>
+
+          </div>
+
+          <!-- Línea con forma de bocadillo de diálogo de la referencia -->
+          <div class="w-full max-w-md mx-auto mt-4 pointer-events-none">
+            <svg viewBox="0 0 400 24" fill="none" class="w-full h-6 block" preserveAspectRatio="none">
+              <path d="M0,4 L120,4 L132,20 L146,4 L400,4" stroke="#FFA6C2" stroke-width="2.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </div>
+
+          <!-- Controles del Slider (Flechas y Dots) -->
+          <div class="flex items-center justify-center gap-4 mt-6">
+            <button onclick="prevSlide()"
+              class="w-9 h-9 rounded-full bg-slate-100 hover:bg-[#598FAB] text-slate-600 hover:text-white flex items-center justify-center transition-all duration-300 shadow-sm hover:scale-110 active:scale-95"
+              aria-label="Testimonio anterior">
+              <i class="fa-solid fa-chevron-left text-xs"></i>
+            </button>
+
+            <div class="flex items-center gap-2">
+              <button onclick="goToSlide(0)"
+                class="slider-dot w-3 h-3 rounded-full bg-[#598FAB] transition-all duration-300 scale-110"
+                aria-label="Ir a testimonio 1"></button>
+              <button onclick="goToSlide(1)"
+                class="slider-dot w-2.5 h-2.5 rounded-full bg-slate-300 hover:bg-slate-400 transition-all duration-300"
+                aria-label="Ir a testimonio 2"></button>
+              <button onclick="goToSlide(2)"
+                class="slider-dot w-2.5 h-2.5 rounded-full bg-slate-300 hover:bg-slate-400 transition-all duration-300"
+                aria-label="Ir a testimonio 3"></button>
+            </div>
+
+            <button onclick="nextSlide()"
+              class="w-9 h-9 rounded-full bg-slate-100 hover:bg-[#598FAB] text-slate-600 hover:text-white flex items-center justify-center transition-all duration-300 shadow-sm hover:scale-110 active:scale-95"
+              aria-label="Testimonio siguiente">
+              <i class="fa-solid fa-chevron-right text-xs"></i>
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Script interactivo del slider de testimonios -->
+  <script>
+    let currentTestimonialSlide = 0;
+    const testimonialSlides = document.querySelectorAll('.testimonial-slide');
+    const testimonialDots = document.querySelectorAll('.slider-dot');
+    let testimonialInterval = null;
+
+    function showTestimonialSlide(index) {
+      currentTestimonialSlide = (index + testimonialSlides.length) % testimonialSlides.length;
+      testimonialSlides.forEach((slide, i) => {
+        if (i === currentTestimonialSlide) {
+          slide.classList.remove('opacity-0', 'pointer-events-none', 'translate-x-8', '-translate-x-8', 'absolute');
+          slide.classList.add('opacity-100', 'translate-x-0', 'relative');
+        } else {
+          slide.classList.remove('opacity-100', 'translate-x-0', 'relative');
+          slide.classList.add('opacity-0', 'pointer-events-none', 'absolute', i < currentTestimonialSlide ? '-translate-x-8' : 'translate-x-8');
+        }
+      });
+
+      testimonialDots.forEach((dot, i) => {
+        if (i === currentTestimonialSlide) {
+          dot.classList.remove('bg-slate-300', 'scale-100');
+          dot.classList.add('bg-[#598FAB]', 'scale-110', 'w-3', 'h-3');
+        } else {
+          dot.classList.remove('bg-[#598FAB]', 'scale-110', 'w-3', 'h-3');
+          dot.classList.add('bg-slate-300', 'scale-100', 'w-2.5', 'h-2.5');
+        }
+      });
+    }
+
+    function nextSlide() {
+      showTestimonialSlide(currentTestimonialSlide + 1);
+      resetTestimonialTimer();
+    }
+
+    function prevSlide() {
+      showTestimonialSlide(currentTestimonialSlide - 1);
+      resetTestimonialTimer();
+    }
+
+    function goToSlide(index) {
+      showTestimonialSlide(index);
+      resetTestimonialTimer();
+    }
+
+    function startTestimonialTimer() {
+      testimonialInterval = setInterval(() => {
+        showTestimonialSlide(currentTestimonialSlide + 1);
+      }, 5000);
+    }
+
+    function resetTestimonialTimer() {
+      if (testimonialInterval) clearInterval(testimonialInterval);
+      startTestimonialTimer();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      showTestimonialSlide(0);
+      startTestimonialTimer();
+    });
+
+    function toggleCartaCompleta() {
+      const extra = document.getElementById('carta-completa-extra');
+      const text = document.getElementById('toggle-carta-text');
+      const icon = document.getElementById('toggle-carta-icon');
+      if (extra.classList.contains('hidden')) {
+        extra.classList.remove('hidden');
+        text.textContent = 'VER MENOS PLATOS';
+        if (icon) icon.classList.add('rotate-180');
+      } else {
+        extra.classList.add('hidden');
+        text.textContent = 'VER CARTA COMPLETA';
+        if (icon) icon.classList.remove('rotate-180');
+        const cartaSection = document.getElementById('carta');
+        if (cartaSection) {
+          cartaSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    }
+  </script>
+
+  <!-- ========================================================
+       CTA FINAL: VIVE LA EXPERIENCIA BARRA COSTERA
+       ======================================================== -->
+  <section id="contacto"
+    class="relative w-full py-10 sm:py-12 md:py-14 bg-slate-900 overflow-hidden flex items-center">
+    
+    <!-- Imagen de fondo con opacidad sutil -->
+    <div 
+      class="absolute inset-0 bg-cover bg-right md:bg-center bg-no-repeat opacity-90 pointer-events-none"
+      style="background-image: url('banner-local-domicilio.png');">
+    </div>
+
+    <!-- Capa de velo sutil para armonizar el contraste -->
+    <div class="absolute inset-0 bg-black/15 pointer-events-none"></div>
+
+    <!-- Contenido alineado al lado izquierdo para lucir los platos a la derecha -->
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div class="max-w-xl text-center md:text-left">
+
+        <!-- Título Grande -->
+        <h2 class="font-heading font-black text-2xl sm:text-4xl md:text-5xl uppercase tracking-tight leading-tight text-white drop-shadow-md">
+          VIVE LA EXPERIENCIA <br class="hidden sm:inline" />
+          <span class="text-white">BARRA COSTERA</span>
+        </h2>
+
+        <!-- Botones de Acción con efecto 3D -->
+        <div class="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 sm:gap-5 mt-5 sm:mt-6">
+          <!-- Botón 1: Pedir por WhatsApp (#FFA6C2 3D) -->
+          <a href="https://wa.me/34614322154?text=%C2%A1Hola%20Barra%20Costera!%20Deseo%20hacer%20un%20pedido"
+            target="_blank" rel="noopener noreferrer"
+            class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-[#FFA6C2] hover:bg-[#f893b2] text-white font-heading font-black text-xs sm:text-sm uppercase tracking-wider px-8 sm:px-10 py-3.5 sm:py-4 rounded-full shadow-[0_6px_0_0_#d97896] hover:shadow-[0_6px_0_0_#c86583] active:translate-y-[4px] active:shadow-[0_2px_0_0_#d97896] transition-all duration-150 select-none cursor-pointer">
+            <i class="fa-brands fa-whatsapp text-lg"></i>
+            <span>PEDIR POR WHATSAPP</span>
+          </a>
+
+          <!-- Botón 2: Ver Carta (3D) -->
+          <a href="#carta"
+            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-[#103a48] font-heading font-black text-xs sm:text-sm uppercase tracking-wider px-8 sm:px-10 py-3.5 sm:py-4 rounded-full shadow-[0_6px_0_0_#cbd5e1] hover:shadow-[0_6px_0_0_#94a3b8] active:translate-y-[4px] active:shadow-[0_2px_0_0_#cbd5e1] transition-all duration-150 select-none cursor-pointer">
+            <i class="fa-solid fa-utensils text-xs"></i>
+            <span>VER NUESTRA CARTA</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       FOOTER CON FONDO CELESTE (#598FAB) Y PATRÓN MARINO
+       ======================================================== -->
+  <footer class="relative bg-[#598FAB] text-white pt-14 pb-8 overflow-hidden">
+
+    <!-- Patrón Marino de fondo sutil con repetición continua -->
+    <div 
+      class="absolute inset-0 bg-repeat pointer-events-none opacity-25 mix-blend-multiply"
+      style="background-image: url('patron-marino.png'); background-size: 320px;"
+    ></div>
+
+    <!-- Contenedor Principal del Footer -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+      <!-- Fila de 4 Columnas -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 pb-10 border-b border-white/25">
+
+        <!-- Columna 1: Logo & Sobre Nosotros -->
+        <div class="space-y-4">
+          <a href="#" class="inline-block transition-transform duration-300 hover:scale-105">
+            <img src="logo.png" alt="Barra Costera" class="h-16 w-auto object-contain drop-shadow-md" />
+          </a>
+          <p class="text-xs sm:text-sm text-white/90 font-body leading-relaxed">
+            La auténtica barra marina y cevichería peruana. Pescados y mariscos del día, limón recién exprimido y el
+            toque callejero exacto.
+          </p>
+
+          <!-- Redes Sociales con los colores de la web -->
+          <div class="flex items-center gap-3 pt-2">
+            <a href="https://wa.me/34614322154" target="_blank" rel="noopener noreferrer"
+              aria-label="WhatsApp de Barra Costera"
+              class="w-9 h-9 rounded-full bg-white text-[#598FAB] flex items-center justify-center hover:bg-[#FFA6C2] hover:text-white transition-all duration-300 hover:scale-110 shadow-sm">
+              <i class="fa-brands fa-whatsapp text-sm"></i>
+            </a>
+            <a href="https://www.instagram.com/barracosterabycamila/" target="_blank" rel="noopener noreferrer"
+              aria-label="Instagram de Barra Costera"
+              class="w-9 h-9 rounded-full bg-white text-[#FFA6C2] flex items-center justify-center hover:bg-[#FFA6C2] hover:text-white transition-all duration-300 hover:scale-110 shadow-sm">
+              <i class="fa-brands fa-instagram text-sm"></i>
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"
+              aria-label="Facebook de Barra Costera"
+              class="w-9 h-9 rounded-full bg-white text-[#598FAB] flex items-center justify-center hover:bg-[#FFA6C2] hover:text-white transition-all duration-300 hover:scale-110 shadow-sm">
+              <i class="fa-brands fa-facebook-f text-sm"></i>
+            </a>
+            <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="TikTok de Barra Costera"
+              class="w-9 h-9 rounded-full bg-white text-[#FFA6C2] flex items-center justify-center hover:bg-[#FFA6C2] hover:text-white transition-all duration-300 hover:scale-110 shadow-sm">
+              <i class="fa-brands fa-tiktok text-sm"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Columna 2: Enlaces Rápidos -->
+        <div>
+          <h4
+            class="font-heading font-black text-white text-sm uppercase tracking-wider mb-4 border-l-4 border-[#FFA6C2] pl-3">
+            Navegación
+          </h4>
+          <ul class="space-y-2.5 text-xs sm:text-sm font-medium">
+            <li>
+              <a href="#inicio" class="text-white/90 hover:text-white hover:translate-x-1 transition-all flex items-center gap-2">
+                <i class="fa-solid fa-chevron-right text-[10px] text-white/70"></i>
+                Inicio
+              </a>
+            </li>
+            <li>
+              <a href="#carta" class="text-white/90 hover:text-white hover:translate-x-1 transition-all flex items-center gap-2">
+                <i class="fa-solid fa-chevron-right text-[10px] text-white/70"></i>
+                Nuestra Carta
+              </a>
+            </li>
+            <li>
+              <a href="#especialidades"
+                class="text-white/90 hover:text-white hover:translate-x-1 transition-all flex items-center gap-2">
+                <i class="fa-solid fa-chevron-right text-[10px] text-white/70"></i>
+                Especialidades Marinas
+              </a>
+            </li>
+            <li>
+              <a href="#instagram"
+                class="text-white/90 hover:text-white hover:translate-x-1 transition-all flex items-center gap-2">
+                <i class="fa-solid fa-chevron-right text-[10px] text-white/70"></i>
+                Instagram @barracosterabycamila
+              </a>
+            </li>
+            <li>
+              <a href="#testimonios"
+                class="text-white/90 hover:text-white hover:translate-x-1 transition-all flex items-center gap-2">
+                <i class="fa-solid fa-chevron-right text-[10px] text-white/70"></i>
+                Opiniones de Clientes
+              </a>
+            </li>
+            <li>
+              <a href="#contacto"
+                class="text-white/90 hover:text-white hover:translate-x-1 transition-all flex items-center gap-2">
+                <i class="fa-solid fa-chevron-right text-[10px] text-white/70"></i>
+                Haz tu Pedido
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Columna 3: Horarios & Atención -->
+        <div>
+          <h4
+            class="font-heading font-black text-white text-sm uppercase tracking-wider mb-4 border-l-4 border-[#FFA6C2] pl-3">
+            Horarios
+          </h4>
+          <div class="space-y-3 text-xs sm:text-sm">
+            <div>
+              <p class="text-white font-bold">Lunes a Jueves:</p>
+              <p class="text-white/90">11:00 am – 10:00 pm</p>
+            </div>
+            <div>
+              <p class="text-white font-bold">Viernes a Domingo:</p>
+              <p class="text-white/90">11:00 am – 11:30 pm</p>
+            </div>
+            <div class="pt-1">
+              <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-white/20 border border-white/40 text-white backdrop-blur-sm">
+                <span class="w-2 h-2 rounded-full bg-emerald-300 animate-pulse"></span>
+                Atendiendo pedidos
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Columna 4: Contacto & Ubicación -->
+        <div>
+          <h4
+            class="font-heading font-black text-white text-sm uppercase tracking-wider mb-4 border-l-4 border-[#FFA6C2] pl-3">
+            Ubicación & Contacto
+          </h4>
+          <ul class="space-y-3 text-xs sm:text-sm">
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-location-dot text-[#FFA6C2] text-base mt-0.5"></i>
+              <span class="text-white/90">Calle Castellón de la Plana 2, Getafe, Madrid</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <i class="fa-solid fa-phone text-white text-base"></i>
+              <a href="tel:+34614322154" class="text-white/90 hover:text-white transition-colors font-medium">+34 614 32 21 54</a>
+            </li>
+            <li class="flex items-center gap-3">
+              <i class="fa-solid fa-envelope text-[#FFA6C2] text-base"></i>
+              <a href="mailto:pedidos@barracostera.es"
+                class="text-white/90 hover:text-white transition-colors">pedidos@barracostera.es</a>
+            </li>
+          </ul>
+
+          <!-- Botón de Pedido Directo con efecto 3D -->
+          <div class="mt-4 pt-2">
+            <a href="https://wa.me/34614322154" target="_blank" rel="noopener noreferrer"
+              class="inline-flex items-center justify-center gap-2 text-xs font-heading font-black uppercase tracking-wider text-white bg-[#FFA6C2] hover:bg-[#f893b2] px-6 py-2.5 rounded-full shadow-[0_4px_0_0_#d97896] hover:shadow-[0_4px_0_0_#c86583] active:translate-y-[2px] active:shadow-[0_1px_0_0_#d97896] transition-all duration-150 select-none cursor-pointer">
+              <i class="fa-brands fa-whatsapp text-sm"></i>
+              <span>Escríbenos Directo</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Barra Inferior de Copyright y Legales -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/80">
+        <p>© 2026 Barra Costera. Todos los derechos reservados. Sabor Marino Auténtico.</p>
+
+        <div class="flex items-center gap-6">
+          <a href="#" class="hover:text-white transition-colors">Políticas de Privacidad</a>
+          <span class="text-white/40">•</span>
+          <a href="#" class="hover:text-white transition-colors">Términos y Condiciones</a>
+          <span class="text-white/40">•</span>
+          <a href="#" class="hover:text-white transition-colors flex items-center gap-1.5">
+            <i class="fa-solid fa-book-open text-white"></i>
+            <span>Libro de Reclamaciones</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </footer>
+
+  <!-- ========================================================
+       BOTÓN FLOTANTE DE WHATSAPP
+       ======================================================== -->
+  <aside class="fixed bottom-6 right-6 z-50 flex items-center group">
+    
+    <!-- Tooltip descriptivo en hover (visible en pantallas sm en adelante) -->
+    <span class="hidden sm:inline-block mr-3 px-3.5 py-1.5 bg-slate-900/90 text-white text-xs font-semibold rounded-full shadow-lg backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none select-none">
+      ¡Pide por WhatsApp! 🐟
+    </span>
+
+    <!-- Botón circular principal -->
+    <a 
+      href="https://wa.me/34614322154?text=%C2%A1Hola%20Barra%20Costera!%20Deseo%20hacer%20un%20pedido" 
+      target="_blank" 
+      rel="noopener noreferrer"
+      aria-label="Chatear por WhatsApp con Barra Costera"
+      class="relative flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#25D366] hover:bg-[#20ba5a] text-white shadow-xl shadow-black/25 transition-all duration-300 hover:scale-110 active:scale-95"
+    >
+      <!-- Indicador con el rosado de la web para llamar la atención sutilmente -->
+      <span class="absolute -top-0.5 -right-0.5 flex h-4 w-4">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FFA6C2] opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-4 w-4 bg-[#FFA6C2] border-2 border-white"></span>
+      </span>
+
+      <!-- Ícono de WhatsApp -->
+      <i class="fa-brands fa-whatsapp text-2xl sm:text-3xl"></i>
+    </a>
+
+  </aside>
+
+</body>
+
+</html>
